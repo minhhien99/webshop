@@ -185,7 +185,7 @@ class VendorController extends Controller
     public function destroy($id)
     {
         // gọi tới hàm destroy của laravel để xóa 1 object
-        // Vendor::destroy($id);
+        Vendor::destroy($id);
 
         // Trả về dữ liệu json và trạng thái kèm theo thành công là 200
         return response()->json([

@@ -89,6 +89,12 @@ class BrandController extends Controller
     public function show($id)
     {
         //
+        $data = Brand::findOrFail($id);
+
+        return view('admin.brand.show',[
+            'data' => $data
+        ]);
+
     }
 
     /**
