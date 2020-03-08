@@ -10,8 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//rang chủ
 Route::get('/', 'ShopController@index');
+//liên hệ
+Route::resource('/contact', 'ContactController');
 
 Route::group(['prefix' => 'admin','as' => 'admin.'], function(){
     Route::get('/', 'AdminController@index')->name('dashboard');
