@@ -88,13 +88,12 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        //
-        $data = Brand::findOrFail($id);
+        $data = Brand::findorFail($id);
 
-        return view('admin.brand.show',[
-            'data' => $data
+        // Gọi tới view
+        return view('admin.brand.show', [
+            'data' => $data // truyền dữ liệu sang view show
         ]);
-
     }
 
     /**
@@ -180,12 +179,12 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-               // gọi tới hàm destroy của laravel để xóa 1 object
-               Brand::destroy($id);
+       // gọi tới hàm destroy của laravel để xóa 1 object
+       Brand::destroy($id);
 
-               // Trả về dữ liệu json và trạng thái kèm theo thành công là 200
-               return response()->json([
-                   'status' => true
-               ], 200);
+       // Trả về dữ liệu json và trạng thái kèm theo thành công là 200
+       return response()->json([
+           'status' => true
+       ], 200);
     }
 }

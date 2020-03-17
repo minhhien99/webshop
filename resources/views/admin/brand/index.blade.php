@@ -57,6 +57,11 @@
                         </table>
                     </div>
                     <!-- /.box-body -->
+                    <div class="box-footer clearfix">
+                        <ul class="pagination pagination-sm no-margin">
+                            {{ $data->links() }}
+                        </ul>
+                    </div>
                 </div>
                 <!-- /.box -->
             </div>

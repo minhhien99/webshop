@@ -69,7 +69,6 @@
 @section('my_javascript')
     <script type="text/javascript">
         $(function () {
-
             // setup textarea sử dụng plugin CKeditor
             var _ckeditor = CKEDITOR.replace('editor1');
             _ckeditor.config.height = 450; // thiết lập chiều cao
