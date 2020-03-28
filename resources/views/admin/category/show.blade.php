@@ -1,5 +1,10 @@
 @extends('admin.layouts.main')
 @section('content')
+<section class="content-header">
+    <h1>
+        Chi Tiết Danh Mục <a href="{{route('admin.category.index')}}" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Danh sách Danh Mục</a>
+    </h1>
+</section>
     <section class="content">
         <div class="row">
             <!-- left column -->

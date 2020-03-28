@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Danh Sách Nhà Cung Cấp <a href="{{route('admin.vendor.create')}}" class="btn btn-info pull-right"><i class="fa fa-plus"></i> Thêm Nhà Cung Cấp</a>
+            Danh Sách Người Dùng <a href="{{route('admin.user.create')}}" class="btn btn-info pull-right"><i class="fa fa-plus"></i> Thêm User</a>
         </h1>
     </section>
     <section class="content">
@@ -26,14 +26,11 @@
                         <table class="table table-hover">
                             <tbody>
                             <tr>
-                                <th>Tên Nhà  Cung Cấp</th>
+                                <th>Họ và Tên</th>
                                 <th>Email</th>
-                                <th>Điện Thoại</th>
-                                <th>Hình Ảnh</th>
-                                <th>WebSite</th>
-                                <th>Địa Chỉ</th>
-                                <th>Vị trí</th>
-                                <th>Trạng Thái</th>
+                                <th>Hình ảnh</th>
+                                <th>Phân Quyền</th>
+                                <th>Kích Hoạt Tài Khoản</th>
                                 <th class="text-center">Hành động</th>
                             </tr>
                             </tbody>
@@ -42,21 +39,18 @@
                                 <tr class="item-{{ $item->id }}"> <!-- Thêm Class Cho Dòng -->
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
-                                    <td>{{ $item->phone }}</td>
                                     <td>
-                                        @if ($item->image) <!-- Kiểm tra hình ảnh tồn tại -->
-                                            <img src="{{asset($item->image)}}" width="50" height="50">
+                                    @if ($item->avatar) <!-- Kiểm tra hình ảnh tồn tại -->
+                                        <img src="{{asset($item->avatar)}}" width="70">
                                         @endif
                                     </td>
-                                    <td>{{ $item->website }}</td>
-                                    <td>{{ $item->address }}</td>
-                                    <td>{{ $item->position }}</td>
-                                    <td>{{ ($item->is_active == 1) ? 'Hiển thị' : 'Ẩn' }}</td>
+                                    <td>{{ ($item->role_id == 1) ? 'Manager' : 'Admin' }}</td>
+                                    <td>{{ ($item->is_active == 1) ? 'Kích hoạt' : 'Chưa kích hoạt' }}</td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.vendor.show', ['id'=> $item->id ])}}" class="btn btn-default">Xem</a>
-                                        <a href="{{route('admin.vendor.edit', ['id'=> $item->id])}}" class="btn btn-info">Sửa</a>
+                                        <a href="{{route('admin.user.show', ['id'=> $item->id ])}}" class="btn btn-default">Xem</a>
+                                        <a href="{{route('admin.user.edit', ['id'=> $item->id])}}" class="btn btn-info">Sửa</a>
                                         <!-- Thêm sự kiện onlick cho nút xóa -->
-                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="destroyVendor({{ $item->id }})" >Xóa</a>
+                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="destroyUser({{ $item->id }})" >Xóa</a>
                                     </td>
                                 </tr>
                             @endforeach

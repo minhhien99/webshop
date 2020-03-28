@@ -25,4 +25,6 @@ Route::group(['prefix' => 'admin','as' => 'admin.'], function(){
     Route::resource('brand', 'BrandController');
     // QL Nhà Cung Cấp
     Route::resource('vendor', 'VendorController');
+    //QL Người Dùng
+    Route::resource('user', 'UserController');
 });
