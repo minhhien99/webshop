@@ -100,12 +100,12 @@ function destroyBrand(id) {
     }
 }
 /* Xóa một row - Products */
-function destroyProducts(id) {
+function destroyProduct(id) {
 
     var result = confirm("Bạn có chắc chắn muốn xóa Brand ?");
     if (result) { // neu nhấn == ok , sẽ send request ajax
         $.ajax({
-            url: base_url + '/admin/products/'+id, // base_url được khai báo ở đầu page == http://webshop.local
+            url: base_url + '/admin/product/'+id, // base_url được khai báo ở đầu page == http://webshop.local
             type: 'DELETE',
             data: {}, // dữ liệu truyền sang nếu có
             dataType: "json", // kiểu dữ liệu nhận về

@@ -13,4 +13,9 @@ class Category extends Model
     {
         return $this->belongsTo("App\Category", "parent_id");
     }
+    // định nghĩa relationships 1 nhiều
+    public function products()
+    {
+        return $this->hasMany('App\Product');
+    }
 }
