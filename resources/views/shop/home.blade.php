@@ -27,47 +27,7 @@
     <section class="header-bottom-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <!-- LEFT-CATEGORY-MENU START -->
-                    <div class="left-category-menu">
-                        <div class="left-product-cat">
-                            <div class="category-heading">
-                                <h2>Danh Mục</h2>
-                            </div>
-                            <!-- CATEGORY-MENU-LIST START -->
-                            <div class="category-menu-list">
-                                <ul>
-                                    @if ( !empty($categories) )
-                                        @foreach ($categories as $categorie)
-                                        <li>
-                                            {{-- danh mục cha --}}
-                                            @if ($categorie->parent_id == 0)
-                                            <a href="shop-gird.html">
-                                                {{ $categorie->name }}<i class="fa fa-angle-right"></i>
-                                            </a>
-                                            <!-- Danh muc con -->
-                                                <div class="cat-left-drop-menu-single">
-                                                    <ul>
-                                                        @foreach ($categories as $child)
-                                                            @if ($categorie->id == $child->parent_id)
-                                                                <li><a href="shop-gird.html">{{ $child->name }}</a></li>
-                                                            @endif
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            <!-- CAT-LEFT MEGA MENU END -->
-                                            @endif
-                                        </li>
-                                        @endforeach
-                                    @endif
-                                </ul>
-                            </div>
-                            <!-- CATEGORY-MENU-LIST END -->
-                        </div>
-                    </div>
-                    <!-- LEFT-CATEGORY-MENU END -->
-                </div>
-                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                {{-- <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                     <!-- MAIN-SLIDER-AREA START -->
                     <div class="main-slider-area">
                         <div class="slider-area">
@@ -87,6 +47,24 @@
                     </div>
                     <!-- MAIN-SLIDER-AREA END -->
                 </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <!-- LEFT-CATEGORY-MENU START -->
+                    <section class="">
+                        <a href="">
+                            <div>
+                                <h2 class=""><b>Tin Công Nghệ</b></h3>
+                            <div class="">
+                            <div>
+                                <p class="">Employee Feedback</p>
+                            <div>
+                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" class="grid__item__img">
+                            </div>
+                                <p class="">Tác giả</p>
+                            </div>
+                        </a>
+                    </section>
+                    <!-- LEFT-CATEGORY-MENU END -->
+                </div> --}}
             </div>
         </div>
     </section>
@@ -107,7 +85,6 @@
     <section class="main-content-section-full-column">
         <div class="container">
             @foreach ($list as $item)
-
             <div class="row">
                 <div class="col-xs-12">
                     <!-- FEATURED-PRODUCTS-AREA START -->
@@ -120,13 +97,11 @@
                             <div class="feartured-carousel">
                                 <!-- SINGLE ITEM START -->
                                 @foreach ($item['products'] as $product)
-
-
                                 <div class="item">
                                     <!-- SINGLE-PRODUCT-ITEM START -->
                                     <div class="single-product-item">
                                         <div class="product-image">
-                                            <a href="#">
+                                            <a href="{{ route('shop.product', ['category' => $product->category->slug , 'slug' => $product->slug , 'id' => $product->id]) }}" title="{{ $product->name }}" >
                                                 <img width="180" height="180" src="{{ asset($product->image)  }}" alt="product-image" />
                                             </a>
                                             <a href="#" class="new-mark-box">HOT</a>

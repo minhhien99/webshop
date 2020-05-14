@@ -58,6 +58,7 @@
             <li><a href="{{ route('admin.vendor.index') }}"><i class="fa fa-cube"></i> <span>QL Nhà Cung Cấp</span></a></li>
             <li><a href="{{ route('admin.brand.index') }}"><i class="fa fa-fire"></i> <span>QL Thương Hiệu</span></a></li>
             <li><a href=" {{route('admin.user.index')}} "><i class="fa fa-user"></i> <span>QL Người Dùng</span></a></li>
+            <li><a href=" {{route('admin.blog.index')}} "><i class="fa fa-user"></i> <span>QL Blog</span></a></li>
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>

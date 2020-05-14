@@ -14,7 +14,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $data =  Brand::all();
+        $data = Brand::latest()->paginate(10); // sắp sếp theo thứ tự mới nhất && phân trang
+
         return view('admin.brand.index',[
             'data' => $data
         ]);
@@ -28,6 +29,7 @@ class BrandController extends Controller
      */
     public function create()
     {
+        $data =  Brand::all();
         // gọi đến view create
         return view('admin.brand.create');
     }
@@ -153,6 +155,7 @@ class BrandController extends Controller
             // Vị trí
             $brand->position = $request->input('position');
         // Trạng thái
+        $brand->is_active = 0;
         if ($request->has('is_active')) {//kiem tra is_active co ton tai khong?
             $brand->is_active = $request->input('is_active');
         }

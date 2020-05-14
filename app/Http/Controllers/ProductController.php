@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::latest()->paginate(10);
+        $data = Product::latest()->paginate(20);//phân trang
 
         return view('admin.product.index', [
             'data' => $data
@@ -140,9 +140,7 @@ class ProductController extends Controller
             'brands' => $brands,
             'vendors' => $vendors
         ]);
-
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -160,7 +158,6 @@ class ProductController extends Controller
         $product = Product::findorFail($id);; // khởi tạo model
         $product->name = $request->input('name');
         $product->slug = str_slug($request->input('name'));
-
         // Thay đổi ảnh
         if ($request->hasFile('new_image')) {
             // xóa file cũ
@@ -188,11 +185,15 @@ class ProductController extends Controller
         $product->url = $request->input('url');
 
         // Trạng thái
+        $product->is_active = 0;
         if ($request->has('is_active')){//kiem tra is_active co ton tai khong?
             $product->is_active = $request->input('is_active');
         }
 
         // Sản phẩm Hot
+
+
+        $product->is_hot = 0;
         if ($request->has('is_hot')){
             $product->is_hot = $request->input('is_active');
         }

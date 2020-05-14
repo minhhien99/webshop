@@ -14,7 +14,8 @@ class VendorController extends Controller
      */
     public function index()
     {
-        $data = Vendor::all(); // lấy toàn bộ dữ liệu
+        $data = Vendor::latest()->paginate(10); // sắp sếp theo thứ tự mới nhất && phân trang
+
         // gọi đến view
         return view('admin.vendor.index', [
             'data' => $data // truyền dữ liệu sang view Index
@@ -28,6 +29,7 @@ class VendorController extends Controller
      */
     public function create()
     {
+        $data = Vendor::all(); // lấy toàn bộ dữ liệu
         // gọi đến view create
         return view('admin.vendor.create');
     }
@@ -162,7 +164,7 @@ class VendorController extends Controller
         // địa chỉ
         $vendor->address = $request->input('address');
         // Trạng thái
-
+        $vendor->is_active = 0;
         if ($request->has('is_active')) {//kiem tra is_active co ton tai khong?
             $vendor->is_active = $request->input('is_active');
         }

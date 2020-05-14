@@ -14,7 +14,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $data = Banner::all(); // lấy toàn bộ dữ liệu
+        $data = Banner::latest()->paginate(10); // sắp sếp theo thứ tự mới nhất && phân trang
+
         // gọi đến view
         return view('admin.banner.index', [
             'data' => $data // truyền dữ liệu sang view Index
@@ -28,6 +29,7 @@ class BannerController extends Controller
      */
     public function create()
     {
+        $data = Banner::all(); // lấy toàn bộ dữ liệu
         // gọi đến view create
         return view('admin.banner.create');
     }
@@ -160,7 +162,7 @@ class BannerController extends Controller
         // Loại
         $banner->type = $request->input('type');
         // Trạng thái
-
+        $banner->is_active = 0;
         if ($request->has('is_active')) {//kiem tra is_active co ton tai khong?
             $banner->is_active = $request->input('is_active');
         }

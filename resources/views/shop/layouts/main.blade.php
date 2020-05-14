@@ -12,7 +12,7 @@
     <title>Home</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <base href="{{asset('')}}">
     <!-- Favicon
     ============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
@@ -99,6 +99,7 @@
 <!-- MAIN-MENU-AREA START -->
 @include('shop.layouts.menu')
 <!-- MAIN-MENU-AREA END -->
+@include('shop.layouts.main-menu')
 <!-- MAIN-CONTENT -->
 @yield('content')
 <!-- BRAND-CLIENT-AREA START -->
@@ -166,7 +167,6 @@
             position: map.getCenter(),
             map: map
         });
-
     }
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
@@ -175,3 +175,30 @@
 </body>
 
 </html>
+{{-- <script>
+    $(document).ready(function(){
+        $(#'name').keyup(function(){
+            var query = $(this).val();
+            if (query != '') {
+                var _token = $('input[name="_token"]').val();
+
+                $.ajax({
+                    url:"{{ route('listSearch.search') }}",
+                    method: "POST",
+                    data:{query:query,_token:_token},
+                    success:function(data)
+                    {
+                        $('#searchList').fadeIn();
+                        $('#searchList').html(data);
+                    }
+                })
+            }
+        });
+
+        $(document).on('click','li', function(){
+            $('#name').val($(this).text());
+            $('#searchList').fadeOut();
+        });
+    });
+</script> --}}
+

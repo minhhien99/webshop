@@ -63,6 +63,11 @@
                         </table>
                     </div>
                     <!-- /.box-body -->
+                    <div class="box-footer clearfix">
+                        <ul class="pagination pagination-sm no-margin">
+                            {{ $data->links() }} {{-- nút bấm phân trang --}}
+                        </ul>
+                    </div>
                 </div>
                 <!-- /.box -->
             </div>

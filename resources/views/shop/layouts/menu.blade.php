@@ -1,3 +1,8 @@
+<style>
+    .main-menu-area, .shopping-cart a.shop-link, .shopping-cart-out { height: 45px; }
+    .mainmenu nav ul li a { line-height: 45px; }
+    .shipping-cart-overly { top: 45px }
+</style>
 <header class="main-menu-area">
     <div class="container">
         <div class="row">
@@ -56,52 +61,32 @@
                 <div class="mainmenu">
                     <nav>
                         <ul class="list-inline mega-menu">
-                            <li class="active"><a href="/">Trang Chủ</a>
-                                <!-- DROPDOWN MENU START -->
-                                <div class="home-var-menu">
-                                    <ul class="home-menu">
-                                        <li><a href="index.html">Home variation 1</a></li>
-                                        <li><a href="index-2.html">Home variation 2</a></li>
-                                    </ul>
-                                </div>
-                                <!-- DROPDOWN MENU END -->
-                            </li>
-                            <li>
-                                @if (!empty($categories))
-                                   @foreach ($categories as $category)
-                                    @if ($category->parent_id == 0)
-                                    <li>
-                                        <a href="">
-                                            {{ $category->name }}
-                                        </a>
-                                        <div class="drodown-mega-menu">
-                                            <div class="left-mega col-xs-6">
-                                                <div class="mega-menu-list">
-                                                    <ul>
-                                                        @foreach ($categories as $item)
-                                                            @if ( $category->id == $item->parent_id )
-                                                                <li>
-                                                                    <a href="">
-                                                                        {{ $item->name }}
-                                                                    </a>
-                                                                </li>
-                                                            @endif
-                                                        @endforeach
-
-                                                    </ul>
+                            <li class="active"><a href="/">Trang Chủ</a></li>
+                            @if(!empty($categories))
+                                @foreach($categories as $category)
+                                    @if($category->parent_id == 0)
+                                        <li>
+                                            <a href="{{ route('shop.category', ['slug' => $category->slug]) }}">{{ $category->name }}</a>
+                                            <!-- DRODOWN-MEGA-MENU START -->
+                                            <div class="drodown-mega-menu">
+                                                <div class="left-mega col-xs-6">
+                                                    <div class="mega-menu-list">
+                                                        <ul>
+                                                            @foreach($categories as $child)
+                                                                @if($category->id == $child->parent_id)
+                                                                    <li><a href="{{ route('shop.category', ['slug' => $child->slug]) }}">{{ $child->name }}</a></li>
+                                                                @endif
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
                                                 </div>
+
                                             </div>
-                                    </li>
+                                            <!-- DRODOWN-MEGA-MENU END -->
+                                        </li>
                                     @endif
-
-                                   @endforeach
-                                @endif
-                                <!-- DRODOWN-MEGA-MENU END -->
-
-
-                        </div>
-                        <!-- DRODOWN-MEGA-MENU END -->
-                    </li>
+                                @endforeach
+                            @endif
                         </ul>
                     </nav>
                 </div>
@@ -136,6 +121,7 @@
                                             <li><a href="shop-gird.html">Evening Dresses</a></li>
                                         </ul>
                                     </li>
+
                                 </ul>
                             </li>
                             <li><a href="shop-gird.html">men</a>

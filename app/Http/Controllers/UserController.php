@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::all(); // lấy toàn bộ dữ liệu
+        $data = User::latest()->paginate(10); // sắp sếp theo thứ tự mới nhất && phân trang
+
         // gọi đến view
         return view('admin.user.index', [
             'data' => $data // truyền dữ liệu sang view Index
@@ -28,6 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $data = User::all(); // lấy toàn bộ dữ liệu
         return view('admin.user.create');
     }
 
