@@ -50,7 +50,7 @@
                                         <a href="{{route('admin.brand.show', ['id'=> $item->id ])}}" class="btn btn-default">Xem</a>
                                         <a href="{{route('admin.brand.edit', ['id'=> $item->id])}}" class="btn btn-info">Sửa</a>
                                         <!-- Thêm sự kiện onlick cho nút xóa -->
-                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="destroyBrand({{ $item->id }})" >Xóa</a>
+                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="delete_model({{ $item->id }},'brand')" >Xóa</a>
                                     </td>
                                 </tr>
                             @endforeach

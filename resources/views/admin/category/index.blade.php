@@ -50,7 +50,7 @@
                                     <td class="text-center">
                                         <a href="{{route('admin.category.show', ['id'=> $item->id ])}}" class="btn btn-default">Xem</a>
                                         <a href="{{route('admin.category.edit', ['id'=> $item->id])}}" class="btn btn-info">Sửa</a>
-                                        <a type="button" class="btn btn-danger" onclick="destroyCategory({{ $item->id }})" >Xóa</a>
+                                        <a type="button" class="btn btn-danger" onclick="delete_model({{ $item->id }},'category')" >Xóa</a>
                                     </td>
                                 </tr>
                             @endforeach

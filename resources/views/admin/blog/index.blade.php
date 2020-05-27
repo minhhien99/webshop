@@ -55,7 +55,7 @@
                                         <a href="{{route('admin.blog.show', ['id'=> $item->id ])}}" class="btn btn-default">Xem</a>
                                         <a href="{{route('admin.blog.edit', ['id'=> $item->id])}}" class="btn btn-info">Sửa</a>
                                         <!-- Thêm sự kiện onlick cho nút xóa -->
-                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="destroyBlog({{ $item->id }})" >Xóa</a>
+                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="delete_model({{ $item->id }},'blog')" >Xóa</a>
                                     </td>
                                 </tr>
                             @endforeach

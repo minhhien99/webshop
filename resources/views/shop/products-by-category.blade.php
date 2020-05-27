@@ -10,7 +10,7 @@
                     <div class="bstore-breadcrumb">
                         <a href="/">Trang chủ</a>
                         <span><i class="fa fa-caret-right"></i></span>
-                        <span>{{ $category->name }}</span>
+                        <span>{{ $cate->name }}</span>
                     </div>
                     <!-- BSTORE-BREADCRUMB END -->
                 </div>
@@ -79,7 +79,7 @@
                                 <li class="gategory-product-list col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                     <div class="single-product-item">
                                         <div class="product-image">
-                                            <a href="{{ route('shop.product', ['category' => $category->slug , 'slug' => $product->slug , 'id' => $product->id]) }}" title="{{ $product->name }}" ><img src="{{ asset($product->image) }}" alt="{{ $product->name }}"></a>
+                                            <a href="{{ route('shop.product', ['category' => $product->$category->slug , 'slug' => $product->slug , 'id' => $product->id]) }}" title="{{ $product->name }}" ><img src="{{ asset($product->image) }}" alt="{{ $product->name }}"></a>
                                             <div class="overlay-content">
                                                 <ul>
                                                     <li><a href="#" title="Quick view"><i class="fa fa-search"></i></a></li>

@@ -11,7 +11,15 @@ Route::get('/{category}/{slug}_{id}', 'ShopController@getProduct')->name('shop.p
 Route::get('/tim-kiem', 'GeneralController@search')->name('shop.search');
 
 // Gio hang
-Route::get('/dat-hang', 'ShopController@getCart')->name('shop.cart');
+// Route::get('/dat-hang', 'ShopController@getCart')->name('shop.cart');
+
+//Đăng nhập
+Route::get('/dang-nhap','AdminController@getLogin' )->name('admin.login');
+
+//Đăng xuất
+Route::get('/dang-xuat','AdminController@getLogout')->name('admin.logout');
+
+Route::get('/postLogin','AdminController@postLogin')->name('admin.postLogin');
 
 // Liên Hệ
 Route::resource('contact', 'ContactController');

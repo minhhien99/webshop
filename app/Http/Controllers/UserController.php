@@ -17,9 +17,10 @@ class UserController extends Controller
         $data = User::latest()->paginate(10); // sắp sếp theo thứ tự mới nhất && phân trang
 
         // gọi đến view
-        return view('admin.user.index', [
+        return view('admin.user.index',[
             'data' => $data // truyền dữ liệu sang view Index
         ]);
+
     }
 
     /**

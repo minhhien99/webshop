@@ -17,7 +17,7 @@
                         <ul class="list-inline">
                             <li><a href="{{ route('contact.index') }}">Liên Hệ</a></li>
                             <li><a href="cart.html">Giỏ Hàng</a></li>
-                            <li><a href="registration.html">Đăng Nhập</a></li>
+                        <li><a href="">Đăng Nhập</a></li>
                         </ul>
                     </nav>
                 </div>

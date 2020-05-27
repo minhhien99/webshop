@@ -78,8 +78,10 @@ class ShopController extends GeneralController
                                     ->get();
 
             return view('shop.products-by-category',[
+                'cate' => $cate,
                 'category' => $category,
                 'products' => $products
+
             ]);
         } else {
             return $this->notfound();
